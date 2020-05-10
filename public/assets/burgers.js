@@ -1,13 +1,9 @@
 
 $(function() {
-    $(".change-devoured").on("click", function(event) {
-      var id = $(this).data("id");
-      var devouredState = $(this).data("devouredState");
-
-      var newDevouredState = {
-        devoured: devouredState
-      }
-  
+    $("#addburger").on("submit", function (event) {
+        event.preventDefault();
+      
+      });
     
       $.ajax("/api/burgers/" + id, {
         type: "PUT",
@@ -41,4 +37,3 @@ $(function() {
         }
       );
     });
-  });

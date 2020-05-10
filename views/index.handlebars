@@ -23,7 +23,7 @@
 	 		  	<p class="lead">{{this.burger_name}}</p>
 	 		  	<span class="input-btn">
 
-	 		  		<form action="burgers{{this.id}}?_method=PUT" method="POST">
+	 		  	
 	 		  			<input type="hidden" name="devoured" value="true">
 	 		  			<button class="btn btn-default btn-md" type="submit">Devour it!</button>
 	 		  		</form>
@@ -53,22 +53,18 @@
 
 					 {{/if}}
 					  {{/each}}
-            
+
 				</ul>
 			</div>
 		</div>
 	</div>
 
-	<div class="col-md-10 col-md-offset-1">
-		<p class="lead">add burger</p>
-		
-		<form class="create-form" action="create" method="POST">
-		 <div class="form-group">
-		 	<textarea class="form-control input-md" type="text" name="burger_name" row="3"></textarea>
-		 </div>
-		 <button class="btn btn-default btn-md" type="submit">Submit</button>
-		</form>
-	</div>
+<form id="addburger">
+  <div class="form-group mr-2">
+  <input id="newburger" type="text" class="form-control" placeholder="Add Burger to Devour" autocomplete="off"></div>
+<button type="submit" class="btn btn-primary addbtn"><strong>Add</strong></button>
+
+ </form>
 
  </div>
 </div>
