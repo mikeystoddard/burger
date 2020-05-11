@@ -1,13 +1,15 @@
 
 $(function() {
-    $("#addburger").on("submit", function (event) {
+    $("#btn-devour").on("click", function (event) {
         event.preventDefault();
-      
-      });
+        console.log("update button click")
+        var burger_id = $(this).siblings(".burger_id").val();
+        console.log(burger_id);
+
     
-      $.ajax("/api/burgers/" + id, {
+      $.ajax("/api/burgers/" + burger_id, {
         type: "PUT",
-        data: newDevouredState
+        data: {devoured: true}
       }).then(
         function() {
           console.log("changed", devouredState);
@@ -16,13 +18,16 @@ $(function() {
         }
       );
     });
+  });
   
-    $(".create-form").on("submit", function(event) {
-    
-      event.preventDefault();
+  $("#addburger").on("submit", function (event) {
+    event.preventDefault();
+  
+  console.log("adding", $("#newburger").val().trim())
+ 
   
       var newBurger = {
-        name: $("#burgerName").val().trim(),
+        burger_name: $("#newburger").val().trim(),
         devoured: false
       };
   

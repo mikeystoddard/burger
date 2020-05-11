@@ -1,7 +1,5 @@
 var connection = require("../config/connection.js");
 
-// Helper function for SQL syntax.
-
 function printQuestionMarks(num) {
   var arr = [];
 
@@ -11,8 +9,6 @@ function printQuestionMarks(num) {
 
   return arr.toString();
 }
-
-// Helper function to convert object key/value pairs to SQL syntax
 
 function objToSql(ob) {
   var arr = [];
@@ -41,7 +37,7 @@ var orm = {
       cb(result);
     });
   },
-  insertOne: function (table, cols, vals, cb) {
+  create: function (table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
 
     queryString += " (";
@@ -60,7 +56,8 @@ var orm = {
       cb(result);
     });
   },
-  updateOne: function (table, objColVals, condition, cb) {
+  update: function (table, objColVals, condition, cb) {
+    console.log("orm update", table, objColVals, condition)
     var queryString = "UPDATE " + table;
 
     queryString += " SET ";
